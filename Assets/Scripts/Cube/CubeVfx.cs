@@ -10,28 +10,38 @@ namespace Cube
 
         private void OnEnable()
         {
-            _cubeUnit.CubeMerger.OnCubeMerged += PlayVfxOnCubeMerged;
-            _cubeUnit.CubeMerger.OnCubeHitted += PlayVfxOnCubeHitted;
+            if (_cubeUnit?.CubeMerger != null)
+            {
+                _cubeUnit.CubeMerger.OnCubeMerged += PlayVfxOnCubeMerged;
+                _cubeUnit.CubeMerger.OnCubeHitted += PlayVfxOnCubeHitted;
+            }
         }
 
         private void OnDisable()
         {
-            _cubeUnit.CubeMerger.OnCubeMerged -= PlayVfxOnCubeMerged;
-            _cubeUnit.CubeMerger.OnCubeHitted -= PlayVfxOnCubeHitted;
+            if (_cubeUnit?.CubeMerger != null)
+            {
+                _cubeUnit.CubeMerger.OnCubeMerged -= PlayVfxOnCubeMerged;
+                _cubeUnit.CubeMerger.OnCubeHitted -= PlayVfxOnCubeHitted;
+            }
         }
 
         private void PlayVfxOnCubeMerged(int value, Vector3 position)
         {
-            _mergeSfx.transform.position = position;
-            
-            _mergeSfx.Play();
+            if (_mergeSfx != null)
+            {
+                _mergeSfx.transform.position = position;
+                _mergeSfx.Play();
+            }
         }
 
         private void PlayVfxOnCubeHitted(Vector3 position)
         {
-            _hitSfx.transform.position = position;
-            
-            _hitSfx.Play();
+            if (_hitSfx != null)
+            {
+                _hitSfx.transform.position = position;
+                _hitSfx.Play();
+            }
         }
     }
 }

@@ -1412,7 +1412,7 @@ GameObject:
   - component: {fileID: 5173734358083971215}
   m_Layer: 0
   m_Name: RegularCube
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
